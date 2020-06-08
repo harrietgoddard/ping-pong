@@ -50,7 +50,7 @@ const App = ({ player1, player2, player1Serves, winner, results, handlePlayer1, 
                   <th scope="row">{ index + 1}</th>
                   <td>{ result.player_1.score }</td>
                   <td>{ result.player_2.score }</td>
-                  <td>{ result.player_1.won === true ? "Player 1" : "Player 2" }</td>
+                  <td>{ result.player_1.won ? "Player 1" : "Player 2" }</td>
                 </tr>
               )
             )}
