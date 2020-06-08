@@ -24,7 +24,7 @@ const App = ({ player1, player2, player1Serves, winner, handlePlayer1, handlePla
             />
         </div>
 
-        { winner ? 
+        { winner && Math.abs(player1 - player2) > 1 ? 
         <h2 className="alert alert-success">Player { winner } wins!</h2> : null }
 
         <hr />
