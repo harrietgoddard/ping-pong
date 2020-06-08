@@ -1,4 +1,5 @@
 import React from "react";
+import ScoreCard from "./components/ScoreCard";
 
 const App = ({ player1, player2, player1Serves, winner, handlePlayer1, handlePlayer2, handleReset }) => (
     <React.Fragment>
@@ -9,41 +10,18 @@ const App = ({ player1, player2, player1Serves, winner, handlePlayer1, handlePla
 
         {/* scores */}
         <div className="row mb-4">
-            <div className="col-md-6 mt-4">
-                <div 
-                  className={ "card text-center " + (player1Serves ? "bg-dark text-white" : "") }
-                >
-                    <h5 className="card-header">Player 1</h5>
-                    <div className="card-body">
-                        <p className="card-text display-1">{ player1 }</p>
-                    </div>
-                    <div className="card-footer">
-                        <button 
-                          className="form-control btn btn-success"
-                          onClick={ handlePlayer1 }
-                          disabled={ winner }
-                        >+</button>
-                    </div>
-                </div>
-            </div>
-
-            <div className="col-md-6 mt-4">
-                <div 
-                  className={ "card text-center " + (!player1Serves ? "bg-dark text-white" : "") }
-                >
-                    <h5 className="card-header">Player 2</h5>
-                    <div className="card-body">
-                        <p className="card-text display-1">{ player2 }</p>
-                    </div>
-                    <div className="card-footer">
-                        <button 
-                          className="form-control btn btn-success"
-                          onClick={ handlePlayer2 }
-                          disabled={ winner }
-                        >+</button>
-                    </div>
-                </div>
-            </div>
+            <ScoreCard
+              player={ player1 }
+              player1Serves={ player1Serves }
+              winner={ winner }
+              handlePlayer={ handlePlayer1 } 
+            />
+            <ScoreCard
+              player={ player2 }
+              player1Serves={ !player1Serves }
+              winner={ winner }
+              handlePlayer={ handlePlayer2 }  
+            />
         </div>
 
         { winner ? 
