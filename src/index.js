@@ -1,18 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { createStore, bindActionCreators } from "redux";
+import { createStore } from "redux";
 
 
 const initial = {
   player1: 0,
   player2: 0,
+  player1Serves: true
 };
+
+const player1Scores = state => {
+  return {
+    ...state,
+    player1: state.player1 + 1
+  }
+}
+
+const player2Scores = state => {
+  return {
+    ...state,
+    player2: state.player2 + 1
+  }
+}
+
+const server = state => {
+  let total = state.player1 + state.player2;
+  if (total % 5 === 0) {
+    return {
+      ...state,
+      player1Serves: !state.player1Serves
+    }
+  } else {
+    return state;
+  }
+}
 
 const reducer = (state, action) => {
   switch(action.type) {
-    case "INCREMENT_PLAYER_1": return { ...state, player1: state.player1 + 1 };
-    case "INCREMENT_PLAYER_2": return { ...state, player2: state.player2 + 1 };
+    case "INCREMENT_PLAYER_1": return server(player1Scores(state));
+    case "INCREMENT_PLAYER_2": return server(player2Scores(state));
     case "RESET": return initial;
     default: return state;
   }
@@ -33,6 +60,7 @@ const render = () => {
       <App 
         player1={ state.player1 } 
         player2={ state.player2 }
+        player1Serves={ state.player1Serves }
         handlePlayer1={ () => store.dispatch({ type: "INCREMENT_PLAYER_1" }) }
         handlePlayer2={ () => store.dispatch({ type: "INCREMENT_PLAYER_2" }) }
         handleReset={ () => store.dispatch({ type: "RESET" }) }
