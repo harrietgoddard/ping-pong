@@ -27,7 +27,12 @@ const player2Scores = state => {
 
 const server = state => {
   let total = state.player1 + state.player2;
-  if (total % 5 === 0) {
+  if (state.player1 === 20 && state.player2 === 20) {
+    return {
+      ...state,
+      player1Serves: !state.player1Serves
+    }
+  } else if (total % 5 === 0) {
     return {
       ...state,
       player1Serves: !state.player1Serves
