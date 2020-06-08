@@ -7,7 +7,8 @@ import { createStore } from "redux";
 const initial = {
   player1: 0,
   player2: 0,
-  player1Serves: true
+  player1Serves: true,
+  winner: 0
 };
 
 const player1Scores = state => {
@@ -36,10 +37,26 @@ const server = state => {
   }
 }
 
+const won = state => {
+  if (state.player1 === 21) {
+    return {
+      ...state,
+      winner: 1
+    }
+  } else if (state.player2 === 21) {
+    return {
+      ...state,
+      winner: 2
+    }
+  } else {
+    return state;
+  }
+}
+
 const reducer = (state, action) => {
   switch(action.type) {
-    case "INCREMENT_PLAYER_1": return server(player1Scores(state));
-    case "INCREMENT_PLAYER_2": return server(player2Scores(state));
+    case "INCREMENT_PLAYER_1": return won(server(player1Scores(state)));
+    case "INCREMENT_PLAYER_2": return won(server(player2Scores(state)));
     case "RESET": return initial;
     default: return state;
   }
@@ -61,6 +78,7 @@ const render = () => {
         player1={ state.player1 } 
         player2={ state.player2 }
         player1Serves={ state.player1Serves }
+        winner={ state.winner }
         handlePlayer1={ () => store.dispatch({ type: "INCREMENT_PLAYER_1" }) }
         handlePlayer2={ () => store.dispatch({ type: "INCREMENT_PLAYER_2" }) }
         handleReset={ () => store.dispatch({ type: "RESET" }) }
