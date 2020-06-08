@@ -8,7 +8,8 @@ const initial = {
   player1: 0,
   player2: 0,
   player1Serves: true,
-  winner: 0
+  winner: 0,
+  results: [],
 };
 
 const player1Scores = state => {
@@ -58,11 +59,34 @@ const won = state => {
   }
 }
 
+const addResult = state => {
+  if (state.winner) {
+    return {
+      ...state,
+      results: [
+        ...state.results,
+        {
+          player_1: {
+            score: state.player1,
+            won: state.winner === 1
+          },
+          player_2: {
+            score: state.player2,
+            won: state.winner === 2
+          }
+        }
+      ],
+    }
+  } else {
+    return state;
+  }
+}
+
 const reducer = (state, action) => {
   switch(action.type) {
-    case "INCREMENT_PLAYER_1": return won(server(player1Scores(state)));
-    case "INCREMENT_PLAYER_2": return won(server(player2Scores(state)));
-    case "RESET": return initial;
+    case "INCREMENT_PLAYER_1": return addResult(won(server(player1Scores(state))));
+    case "INCREMENT_PLAYER_2": return addResult(won(server(player2Scores(state))));
+    case "RESET": return { ...initial, results: state.results };
     default: return state;
   }
 }
@@ -87,11 +111,13 @@ const render = () => {
         handlePlayer1={ () => store.dispatch({ type: "INCREMENT_PLAYER_1" }) }
         handlePlayer2={ () => store.dispatch({ type: "INCREMENT_PLAYER_2" }) }
         handleReset={ () => store.dispatch({ type: "RESET" }) }
+        results={ state.results }
       />
     </React.StrictMode>,
     document.getElementById('root')
   );
 
+  console.log(state.results);
 }
 
 store.subscribe(render);
