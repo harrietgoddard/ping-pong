@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { createStore } from "redux";
+import { createStore, bindActionCreators } from "redux";
 
 
 const initial = {
@@ -9,8 +9,12 @@ const initial = {
   player2: 0,
 };
 
-const reducer = state => {
-  return state;
+const reducer = (state, action) => {
+  switch(action.type) {
+    case "INCREMENT_PLAYER_1": return { ...state, player1: state.player1 + 1 }
+    case "INCREMENT_PLAYER_2": return { ...state, player2: state.player2 + 1 }
+    default: return state;
+  }
 }
 
 const store = createStore(
@@ -25,7 +29,12 @@ const render = () => {
 
   ReactDOM.render(
     <React.StrictMode>
-      <App player1={ state.player1 } player2={ state.player2 }/>
+      <App 
+        player1={ state.player1 } 
+        player2={ state.player2 }
+        handlePlayer1={ () => store.dispatch({ type: "INCREMENT_PLAYER_1" }) }
+        handlePlayer2={ () => store.dispatch({ type: "INCREMENT_PLAYER_2" }) }
+      />
     </React.StrictMode>,
     document.getElementById('root')
   );
