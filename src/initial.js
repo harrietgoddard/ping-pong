@@ -4,6 +4,7 @@ const initial = {
     player1Serves: true,
     winner: 0,
     results: [],
+    english: true
   };
 
   export default initial;

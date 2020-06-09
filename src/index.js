@@ -17,6 +17,7 @@ import { Provider } from 'react-redux';
           handlePlayer1={ () => store.dispatch({ type: "INCREMENT_PLAYER_1" }) }
           handlePlayer2={ () => store.dispatch({ type: "INCREMENT_PLAYER_2" }) }
           handleReset={ () => store.dispatch({ type: "RESET" }) }
+          handleLanguage={ () => store.dispatch({ type: "CHANGE_LANGUAGE" }) }
           results={ state.results }
         />
       </Provider>

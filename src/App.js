@@ -1,24 +1,26 @@
 import React from "react";
+import Header from './components/Header/'
 import ScoreCard1 from './components/ScoreCard/ScoreCard1';
 import ScoreCard2 from './components/ScoreCard/ScoreCard2';
 import Winner from './components/Winner/';
+import Button from './components/Button/'
 import Results from './components/Results/';
 
-const App = ({ handlePlayer1, handlePlayer2, handleReset }) => (
+const App = ({ handlePlayer1, handlePlayer2, handleReset, handleLanguage }) => (
     <React.Fragment>
         {/* header */}
-        <header className="jumbotron mt-4 mb-0">
-            <h1>PongPing</h1>
-        </header>
+        <Header
+        handleLanguage={ handleLanguage } 
+        />
 
         {/* scores */}
         <div className="row mb-4">
             <ScoreCard1
-              label={ "Player 1"}
+              id={ 1 }
               handlePlayer={ handlePlayer1 } 
             />
             <ScoreCard2
-              label={ "Player 2"}
+              id={ 2 }
               handlePlayer={ handlePlayer2 }  
             />
         </div>
@@ -28,10 +30,8 @@ const App = ({ handlePlayer1, handlePlayer2, handleReset }) => (
         <hr />
 
         { /* reset button */}
-        <button 
-          className="btn btn-danger"
-          onClick={ handleReset }
-        >Reset</button>
+        <Button 
+        handleReset={ handleReset }/>
 
         <Results />
 

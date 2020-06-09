@@ -69,12 +69,20 @@ const player1Scores = state => {
       return state;
     }
   }
+
+  const changeLanguage = state => {
+    return {
+      ...state,
+      english: !state.english,
+    }
+  }
   
   const reducer = (state, action) => {
     switch(action.type) {
       case "INCREMENT_PLAYER_1": return addResult(won(server(player1Scores(state))));
       case "INCREMENT_PLAYER_2": return addResult(won(server(player2Scores(state))));
       case "RESET": return { ...initial, results: state.results };
+      case "CHANGE_LANGUAGE": return changeLanguage(state);
       default: return state;
     }
   }
