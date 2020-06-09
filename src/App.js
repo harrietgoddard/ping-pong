@@ -2,7 +2,7 @@ import React from "react";
 import ScoreCard1 from './components/ScoreCard/ScoreCard1';
 import ScoreCard2 from './components/ScoreCard/ScoreCard2';
 import Winner from './components/Winner/';
-import Results from "./components/Results";
+import Results from "./components/Results/";
 
 const App = ({ player1, player2, player1Serves, winner, results, handlePlayer1, handlePlayer2, handleReset }) => (
     <React.Fragment>
@@ -33,9 +33,7 @@ const App = ({ player1, player2, player1Serves, winner, results, handlePlayer1, 
           onClick={ handleReset }
         >Reset</button>
 
-        <Results
-          results={ results } 
-        />
+        <Results />
 
     </React.Fragment>
 );
