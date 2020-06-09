@@ -1,6 +1,6 @@
 import React from "react";
-import englishDictionary from '../../english.json';
-import esperantoDictionary from '../../esperanto.json';
+import englishDictionary from '../../data/english.json';
+import esperantoDictionary from '../../data/esperanto.json';
 
 const Winner = ({ player1, player2, winner, english }) => {
     

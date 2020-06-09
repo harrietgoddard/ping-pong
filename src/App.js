@@ -8,12 +8,11 @@ import Results from './components/Results/';
 
 const App = ({ handlePlayer1, handlePlayer2, handleReset, handleLanguage }) => (
     <React.Fragment>
-        {/* header */}
+
         <Header
         handleLanguage={ handleLanguage } 
         />
 
-        {/* scores */}
         <div className="row mb-4">
             <ScoreCard1
               id={ 1 }
@@ -29,7 +28,6 @@ const App = ({ handlePlayer1, handlePlayer2, handleReset, handleLanguage }) => (
 
         <hr />
 
-        { /* reset button */}
         <Button 
         handleReset={ handleReset }/>
 

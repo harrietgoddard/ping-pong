@@ -1,6 +1,6 @@
 import React from "react";
-import englishDictionary from '../../english.json';
-import esperantoDictionary from '../../esperanto.json';
+import englishDictionary from '../../data/english.json';
+import esperantoDictionary from '../../data/esperanto.json';
 
 const Header = ({ english, handleLanguage }) => {
     
