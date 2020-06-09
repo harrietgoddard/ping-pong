@@ -29,7 +29,7 @@ const server = state => {
 
   let changeServer = (state.player1 === finalPoint && state.player2 === finalPoint) || total % serveInterval === 0;
 
-  return !changeServer ? state : { ...state, player1Serves: !state.player1Serves};
+  return !changeServer ? state : { ...state, serving: !state.serving};
 
 }
 
@@ -79,11 +79,16 @@ const changeLanguage = state => {
 
 const reducer = (state, action) => {
   switch(action.type) {
+    
     case "INCREMENT_PLAYER_1": return addResult(won(server(player1Scores(state))));
+
     case "INCREMENT_PLAYER_2": return addResult(won(server(player2Scores(state))));
+
     case "RESET": return { ...initial, results: state.results, english: state.english };
+
     case "CHANGE_LANGUAGE": return changeLanguage(state);
     default: return state;
+
   }
 }
 

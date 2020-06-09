@@ -2,7 +2,7 @@ import React from "react";
 import englishDictionary from '../../data/english.json';
 import esperantoDictionary from '../../data/esperanto.json';
 
-const ScoreCard = ({ id, player, player1Serves, winner, english, handlePlayer }) => {
+const ScoreCard = ({ id, player, serving, winner, english, handlePlayer }) => {
 
     let language = english ? englishDictionary : esperantoDictionary;
 
@@ -10,7 +10,7 @@ const ScoreCard = ({ id, player, player1Serves, winner, english, handlePlayer })
 
         <div className="col-md-6 mt-4">
             <div 
-              className={ "card text-center " + (player1Serves ? "bg-dark text-white" : "") }
+              className={ "card text-center " + (serving ? "bg-dark text-white" : "") }
             >
                 <h5 className="card-header">
                     { language.player + " " + id }

@@ -1,10 +1,10 @@
 import { connect } from "react-redux";
 import ScoreCard from './ScoreCard';
 
-const mapStateToProps = ({ player2, player1Serves, winner, english }) => {
+const mapStateToProps = ({ player2, serving, winner, english }) => {
     return {
         player: player2,
-        player1Serves: !player1Serves,
+        serving: !serving,
         winner,
         english
     }
