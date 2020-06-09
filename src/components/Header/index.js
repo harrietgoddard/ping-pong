@@ -1,11 +1,6 @@
 import { connect } from "react-redux";
 import Header from './Header';
 
-const mapStateToProps = (state) => {
-    return {
-        english: state.english,
-    }
-}
-
+const mapStateToProps = ({ english }) => ({ english });
 
 export default connect(mapStateToProps)(Header);
