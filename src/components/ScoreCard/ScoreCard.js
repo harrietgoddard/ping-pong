@@ -3,6 +3,9 @@ import englishDictionary from '../../english.json';
 import esperantoDictionary from '../../esperanto.json';
 
 const ScoreCard = ({ id, player, player1Serves, winner, english, handlePlayer }) => {
+
+    let language = english ? englishDictionary : esperantoDictionary;
+
     return (
 
         <div className="col-md-6 mt-4">
@@ -10,8 +13,7 @@ const ScoreCard = ({ id, player, player1Serves, winner, english, handlePlayer })
               className={ "card text-center " + (player1Serves ? "bg-dark text-white" : "") }
             >
                 <h5 className="card-header">
-                    { english ? englishDictionary.player + " " + id :
-                    esperantoDictionary.player + " " + id }
+                    { language.player + " " + id }
                 </h5>
                 <div className="card-body">
                     <p className="card-text display-1">{ player }</p>
