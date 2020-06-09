@@ -1,13 +1,13 @@
 import React from "react";
 
-const ScoreCard = ({ player, player1Serves, winner, handlePlayer }) => {
+const ScoreCard = ({ label, player, player1Serves, winner, handlePlayer }) => {
     return (
 
         <div className="col-md-6 mt-4">
             <div 
               className={ "card text-center " + (player1Serves ? "bg-dark text-white" : "") }
             >
-                <h5 className="card-header">Player 1</h5>
+                <h5 className="card-header">{ label }</h5>
                 <div className="card-body">
                     <p className="card-text display-1">{ player }</p>
                 </div>

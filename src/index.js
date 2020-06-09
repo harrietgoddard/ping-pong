@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import store from './store';
 
-const render = () => {
+const render = () => { //remove
   let state = store.getState();
 
   ReactDOM.render(
@@ -24,8 +24,8 @@ const render = () => {
 
 }
 
-store.subscribe(render);
-render();
+store.subscribe(render); //remove
+render(); //remove
 
 
 

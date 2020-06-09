@@ -1,5 +1,7 @@
 import React from "react";
 import ScoreCard from "./components/ScoreCard";
+import Winner from "./components/Winner";
+import Results from "./components/Results";
 
 const App = ({ player1, player2, player1Serves, winner, results, handlePlayer1, handlePlayer2, handleReset }) => (
     <React.Fragment>
@@ -11,12 +13,14 @@ const App = ({ player1, player2, player1Serves, winner, results, handlePlayer1, 
         {/* scores */}
         <div className="row mb-4">
             <ScoreCard
+              label={ "Player 1"}
               player={ player1 }
               player1Serves={ player1Serves }
               winner={ winner }
               handlePlayer={ handlePlayer1 } 
             />
             <ScoreCard
+              label={ "Player 2"}
               player={ player2 }
               player1Serves={ !player1Serves }
               winner={ winner }
@@ -24,8 +28,11 @@ const App = ({ player1, player2, player1Serves, winner, results, handlePlayer1, 
             />
         </div>
 
-        { winner && Math.abs(player1 - player2) > 1 ? 
-        <h2 className="alert alert-success">Player { winner } wins!</h2> : null }
+        <Winner
+          player1={ player1 }
+          player2={ player2 } 
+          winner={ winner }  
+        />
 
         <hr />
 
@@ -35,27 +42,10 @@ const App = ({ player1, player2, player1Serves, winner, results, handlePlayer1, 
           onClick={ handleReset }
         >Reset</button>
 
-        <table className="table mt-5">
-          <thead>
-            <tr>
-              <th scope="col">Game</th>
-              <th scope="col">Player 1</th>
-              <th scope="col">Player 2</th>
-              <th scope="col">Winner</th>
-            </tr>
-          </thead>
-          <tbody>
-            { results.map((result, index) => (
-                <tr key={ index }>
-                  <th scope="row">{ index + 1}</th>
-                  <td>{ result.player_1.score }</td>
-                  <td>{ result.player_2.score }</td>
-                  <td>{ result.player_1.won ? "Player 1" : "Player 2" }</td>
-                </tr>
-              )
-            )}
-          </tbody>
-        </table>
+        <Results
+          results={ results } 
+        />
+
     </React.Fragment>
 );
 
