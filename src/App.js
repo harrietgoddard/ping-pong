@@ -1,5 +1,7 @@
 import React from "react";
-import ScoreCard from "./components/ScoreCard";
+import ScoreCard from "./components/ScoreCard/ScoreCard";
+import ScoreCard1 from './components/ScoreCard/ScoreCard1';
+import ScoreCard2 from './components/ScoreCard/ScoreCard2';
 import Winner from "./components/Winner";
 import Results from "./components/Results";
 
@@ -12,14 +14,14 @@ const App = ({ player1, player2, player1Serves, winner, results, handlePlayer1, 
 
         {/* scores */}
         <div className="row mb-4">
-            <ScoreCard
+            <ScoreCard1
               label={ "Player 1"}
               player={ player1 }
               player1Serves={ player1Serves }
               winner={ winner }
               handlePlayer={ handlePlayer1 } 
             />
-            <ScoreCard
+            <ScoreCard2
               label={ "Player 2"}
               player={ player2 }
               player1Serves={ !player1Serves }
