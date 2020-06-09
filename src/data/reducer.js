@@ -6,11 +6,11 @@ const winningScore = 21;
 //add points when players score
 
 const player1Scores = state => {
-    return {
-      ...state,
-      player1: state.player1 + 1
-    }
+  return {
+    ...state,
+    player1: state.player1 + 1
   }
+}
   
 const player2Scores = state => {
   return {
@@ -22,42 +22,34 @@ const player2Scores = state => {
 //switch server every 5 points (or every other point if score is 20-20)
 
 const server = state => {
+  
   let total = state.player1 + state.player2;
+
   let finalPoint = winningScore - 1;
 
-  if ((state.player1 === finalPoint && state.player2 === finalPoint) || total % serveInterval === 0) {
-    return {
-      ...state,
-      player1Serves: !state.player1Serves
-    }
-  } else {
-    return state;
-  }
+  let changeServer = (state.player1 === finalPoint && state.player2 === finalPoint) || total % serveInterval === 0;
+
+  return !changeServer ? state : { ...state, player1Serves: !state.player1Serves};
+
 }
 
 //calculate the winner
 
 const won = state => {
-  if (state.player1 === winningScore) {
-    return {
-      ...state,
-      winner: 1
-    }
-  } else if (state.player2 === winningScore) {
-    return {
-      ...state,
-      winner: 2
-    }
-  } else {
-    return state;
-  }
+  
+  let winner = state.player1 === winningScore ? 1 :
+  state.player2 === winningScore ? 2 : state.winner;
+
+  return !winner ? state : { ...state, winner};
+
 }
 
 //add result to results table
 
 const addResult = state => {
-  if (state.winner) {
-    return {
+  
+  return !state.winner ? state :
+   {
       ...state,
       results: [
         ...state.results,
@@ -73,9 +65,6 @@ const addResult = state => {
         }
       ],
     }
-  } else {
-    return state;
-  }
 }
 
 //toggle app language
