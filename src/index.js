@@ -4,6 +4,8 @@ import App from './App';
 import { createStore, compose } from "redux";
 import persistState from "redux-localstorage";
 
+const serveInterval = 5;
+const winningScore = 21;
 
 const initial = {
   player1: 0,
@@ -29,12 +31,9 @@ const player2Scores = state => {
 
 const server = state => {
   let total = state.player1 + state.player2;
-  if (state.player1 === 20 && state.player2 === 20) {
-    return {
-      ...state,
-      player1Serves: !state.player1Serves
-    }
-  } else if (total % 5 === 0) {
+  let finalPoint = winningScore - 1;
+
+  if ((state.player1 === finalPoint && state.player2 === finalPoint) || total % serveInterval === 0) {
     return {
       ...state,
       player1Serves: !state.player1Serves
@@ -45,12 +44,12 @@ const server = state => {
 }
 
 const won = state => {
-  if (state.player1 === 21) {
+  if (state.player1 === winningScore) {
     return {
       ...state,
       winner: 1
     }
-  } else if (state.player2 === 21) {
+  } else if (state.player2 === winningScore) {
     return {
       ...state,
       winner: 2
@@ -121,7 +120,6 @@ const render = () => {
     document.getElementById('root')
   );
 
-  console.log(state.results);
 }
 
 store.subscribe(render);
