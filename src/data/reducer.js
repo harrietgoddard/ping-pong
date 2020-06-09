@@ -37,10 +37,12 @@ const server = state => {
 
 const won = state => {
   
+  let scoreGap = Math.abs(state.player1 - state.player2) > 1
+  
   let winner = state.player1 === winningScore ? 1 :
   state.player2 === winningScore ? 2 : state.winner;
 
-  return !winner ? state : { ...state, winner};
+  return !winner || !scoreGap ? state : { ...state, winner};
 
 }
 
