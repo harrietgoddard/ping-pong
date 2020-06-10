@@ -18,6 +18,7 @@ class Form extends Component {
         this.handleP2Name = this.handleP2Name.bind(this);
         this.handleWinningScore = this.handleWinningScore.bind(this);
         this.handleAlternateEvery = this.handleAlternateEvery.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleP1Name = (e) => {
@@ -44,9 +45,15 @@ class Form extends Component {
         });
     };
 
+    handleSubmit = (e) => {
+        e.preventDefault();
+        
+        this.props.handleSubmit({ ...this.state })
+    };
+
     render() {
         return (
-            <form className="mt-4">
+            <form className="mt-4" onSubmit={ this.handleSubmit }>
 
                 <FormField
                     name={ "p1Name" }

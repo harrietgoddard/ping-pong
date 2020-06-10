@@ -5,8 +5,8 @@ const initial = {
   winner: 0,
   results: [],
   english: true,
-  p1Name: "me and",
-  p2Name: "you",
+  p1Name: "",
+  p2Name: "",
   winningScore: 21,
   alternateEvery: 5,
 };

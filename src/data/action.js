@@ -21,3 +21,13 @@ export const incrementPlayer2 = () => {
         type: "INCREMENT_PLAYER_2"
     };
 };
+
+export const saveSettings = (data) => {
+    return {
+        type: "SAVE_SETTINGS",
+        p1Name: data.p1Name,
+        p2Name: data.p2Name,
+        winningScore: +data.winningScore,
+        alternateEvery: +data.alternateEvery,
+    };
+};

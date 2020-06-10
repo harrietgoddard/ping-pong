@@ -78,6 +78,18 @@ const changeLanguage = state => {
   }
 }
 
+//save settings
+
+const saveSettings = (state, action) => {
+  return {
+    ...state,
+    p1Name: action.p1Name,
+    p2Name: action.p2Name,
+    winningScore: action.winningScore,
+    alternateEvery: action.alternateEvery,
+  }
+}
+
 
 const reducer = (state, action) => {
   switch(action.type) {
@@ -89,6 +101,9 @@ const reducer = (state, action) => {
     case "RESET": return { ...initial, results: state.results, english: state.english };
 
     case "CHANGE_LANGUAGE": return changeLanguage(state);
+
+    case "SAVE_SETTINGS": return saveSettings(state, action);
+
     default: return state;
 
   }
