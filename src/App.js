@@ -3,7 +3,7 @@ import Header from './components/Header/'
 import ScoreCard1 from './components/ScoreCard/ScoreCard1';
 import ScoreCard2 from './components/ScoreCard/ScoreCard2';
 import Winner from './components/Winner/';
-import Button from './components/Button/ResetButton'
+import ResetButton from './components/Button/ResetButton'
 import Results from './components/Results/';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Form from './components/Form/';
@@ -32,7 +32,7 @@ const App = ({ handlePlayer1, handlePlayer2, handleReset, handleLanguage }) => (
 
           <hr />
 
-          <Button
+          <ResetButton
             name={ "reset" }
           />
 

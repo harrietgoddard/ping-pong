@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import FormField from "../FormField/";
-import Button from "../Button/Button";
+import StartButton from "../Button/StartButton";
 
 class Form extends Component {
     
@@ -83,7 +83,7 @@ class Form extends Component {
                     handleChange={ this.handleAlternateEvery }
                     value={ this.state.alternateEvery }  
                 />
-                <Button
+                <StartButton
                     name={ "startGame" } 
                 />
 
