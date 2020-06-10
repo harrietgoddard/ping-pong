@@ -12,14 +12,14 @@ class Form extends Component {
             p2Name: props.p2Name,
             winningScore: props.winningScore,
             alternateEvery: props.alternateEvery,
-        }
+        };
 
         this.handleP1Name = this.handleP1Name.bind(this);
         this.handleP2Name = this.handleP2Name.bind(this);
         this.handleWinningScore = this.handleWinningScore.bind(this);
         this.handleAlternateEvery = this.handleAlternateEvery.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    };
 
     handleP1Name = (e) => {
         this.setState({
