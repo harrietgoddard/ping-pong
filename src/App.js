@@ -3,32 +3,44 @@ import Header from './components/Header/'
 import ScoreCard1 from './components/ScoreCard/ScoreCard1';
 import ScoreCard2 from './components/ScoreCard/ScoreCard2';
 import Winner from './components/Winner/';
-import Button from './components/Button/'
+import Button from './components/Button/ResetButton'
 import Results from './components/Results/';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Form from './components/Form/';
 
 const App = ({ handlePlayer1, handlePlayer2, handleReset, handleLanguage }) => (
-    <React.Fragment>
+    <Router>
 
         <Header />
 
-        <div className="row mb-4">
-            <ScoreCard1
-              id={ 1 }
-            />
-            <ScoreCard2
-              id={ 2 } 
-            />
-        </div>
+        <Route exact path="/">
+          <Form />
+        </Route>
 
-        <Winner />
+        <Route exact path="/game">
 
-        <hr />
+          <div className="row mb-4">
+              <ScoreCard1
+                id={ 1 }
+              />
+              <ScoreCard2
+                id={ 2 } 
+              />
+          </div>
 
-        <Button />
+          <Winner />
 
-        <Results />
+          <hr />
 
-    </React.Fragment>
+          <Button
+            name={ "reset" }
+          />
+
+          <Results />
+        
+        </Route>
+
+    </Router>
 );
 
 export default App;

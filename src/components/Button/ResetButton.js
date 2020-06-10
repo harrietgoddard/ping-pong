@@ -6,7 +6,7 @@ const mapStateToProps = ({ english }) => ({ english });
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleReset: () => dispatch(reset())
+        handleClick: () => dispatch(reset())
     };
 };
 

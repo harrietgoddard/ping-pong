@@ -4,5 +4,6 @@
     "player": "Player",
     "wins": "Wins",
     "game": "Game",
-    "winner": "Winner"
+    "winner": "Winner",
+    "startGame": "Start Game"
 }
