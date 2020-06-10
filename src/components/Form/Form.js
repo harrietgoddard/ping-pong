@@ -52,6 +52,9 @@ class Form extends Component {
     };
 
     render() {
+        
+        const { p1Name, p2Name, winningScore, alternateEvery } = this.state;
+        
         return (
             <form className="mt-4" onSubmit={ this.handleSubmit }>
 
@@ -60,28 +63,28 @@ class Form extends Component {
                     label={ "Player 1 Name" }
                     type={ "text" }
                     handleChange={ this.handleP1Name }
-                    value={ this.state.p1Name } 
+                    value={ p1Name } 
                 />
                 <FormField
                     name={ "p2Name" }
                     label={ "Player 2 Name" }
                     type={ "text" }
                     handleChange={ this.handleP2Name }
-                    value={ this.state.p2Name }  
+                    value={ p2Name }  
                 />
                 <FormField
                     name={ "winningScore" }
                     label={ "Winning Score" }
                     type={ "number" }
                     handleChange={ this.handleWinningScore }
-                    value={ this.state.winningScore } 
+                    value={ winningScore } 
                 />
                 <FormField
                     name={ "alternateEvery" }
                     label={ "Alternate Every" }
                     type={ "number" }
                     handleChange={ this.handleAlternateEvery }
-                    value={ this.state.alternateEvery }  
+                    value={ alternateEvery }  
                 />
                 <StartButton
                     name={ "startGame" } 
