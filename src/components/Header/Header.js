@@ -11,6 +11,7 @@ const Header = ({ english, handleLanguage }) => {
             <h1>PongPing</h1>
             <p
             onClick={ handleLanguage }
+            style={{ cursor: "pointer" }}
             >{ language.language }</p>
         </header>
     )

@@ -3,4 +3,10 @@ import Button from './Button';
 
 const mapStateToProps = ({ english }) => ({ english });
 
-export default connect(mapStateToProps)(Button);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleReset: () => dispatch({ type: "RESET" })
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Button);

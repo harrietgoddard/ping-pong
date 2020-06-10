@@ -3,4 +3,10 @@ import Header from './Header';
 
 const mapStateToProps = ({ english }) => ({ english });
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleLanguage: () => dispatch({ type: "CHANGE_LANGUAGE" })
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

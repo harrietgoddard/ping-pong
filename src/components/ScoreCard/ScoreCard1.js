@@ -7,7 +7,13 @@ const mapStateToProps = ({ player1, serving, winner, english }) => {
         serving,
         winner,
         english
-    }
-}
+    };
+};
 
-export default connect(mapStateToProps)(ScoreCard);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handlePlayer: () => dispatch({ type: "INCREMENT_PLAYER_1" })
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ScoreCard);
