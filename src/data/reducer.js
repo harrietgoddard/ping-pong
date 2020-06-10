@@ -1,8 +1,5 @@
 import initial from './initial';
 
-const serveInterval = 5;
-const winningScore = 21;
-
 //add points when players score
 
 const player1Scores = state => {
@@ -19,15 +16,15 @@ const player2Scores = state => {
   }
 }
 
-//switch server every 5 points (or every other point if score is 20-20)
+//switch server every X points (or every other point if score is deuce)
 
 const server = state => {
   
   let total = state.player1 + state.player2;
 
-  let finalPoint = winningScore - 1;
+  let finalPoint = state.winningScore - 1;
 
-  let changeServer = (state.player1 === finalPoint && state.player2 === finalPoint) || total % serveInterval === 0;
+  let changeServer = (state.player1 === finalPoint && state.player2 === finalPoint) || total % state.alternateEvery === 0;
 
   return !changeServer ? state : { ...state, serving: !state.serving};
 
@@ -39,8 +36,8 @@ const won = state => {
   
   let scoreGap = Math.abs(state.player1 - state.player2) > 1
   
-  let winner = state.player1 === winningScore ? 1 :
-  state.player2 === winningScore ? 2 : state.winner;
+  let winner = state.player1 === state.winningScore ? 1 :
+  state.player2 === state.winningScore ? 2 : state.winner;
 
   return !winner || !scoreGap ? state : { ...state, winner};
 
