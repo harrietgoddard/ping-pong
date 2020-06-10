@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import Form from './Form';
 import { saveSettings } from '../../data/action';
+import history from '../../history';
 
 const mapStateToProps = ({ p1Name, p2Name, winningScore, alternateEvery }) => ({
     p1Name,
@@ -11,7 +12,10 @@ const mapStateToProps = ({ p1Name, p2Name, winningScore, alternateEvery }) => ({
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleSubmit: data => dispatch(saveSettings(data))
+        handleSubmit: data => { 
+            dispatch(saveSettings(data));
+            history.push("/game");
+        }
     }
 }
 

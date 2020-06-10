@@ -5,11 +5,12 @@ import ScoreCard2 from './components/ScoreCard/ScoreCard2';
 import Winner from './components/Winner/';
 import ResetButton from './components/Button/ResetButton'
 import Results from './components/Results/';
-import { BrowserRouter as Router, Route } from "react-router-dom";
 import Form from './components/Form/';
+import history from './history';
+import { Router, Route } from "react-router-dom";
 
 const App = ({ handlePlayer1, handlePlayer2, handleReset, handleLanguage }) => (
-    <Router>
+    <Router history={ history }>
 
         <Header />
 

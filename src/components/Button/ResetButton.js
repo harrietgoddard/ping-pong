@@ -1,12 +1,16 @@
 import { connect } from "react-redux";
 import Button from './Button';
 import { reset } from '../../data/action';
+import history from '../../history';
 
 const mapStateToProps = ({ english }) => ({ english });
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        handleClick: () => dispatch(reset())
+        handleClick: () => {
+            dispatch(reset());
+            history.push("/");
+        }
     };
 };
 

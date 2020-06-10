@@ -87,6 +87,20 @@ const saveSettings = (state, action) => {
   }
 }
 
+//reset
+
+const resetGame = state => {
+  return {
+    ...initial, 
+    results: state.results, 
+    english: state.english,
+    p1Name: state.p1Name,
+    p2Name: state.p2Name,
+    winningScore: state.winningScore,
+    alternateEvery: state.alternateEvery,
+  }
+}
+
 
 const reducer = (state, action) => {
   switch(action.type) {
@@ -95,7 +109,7 @@ const reducer = (state, action) => {
 
     case "INCREMENT_PLAYER_2": return addResult(won(server(player2Scores(state))));
 
-    case "RESET": return { ...initial, results: state.results, english: state.english };
+    case "RESET": return resetGame(state);
 
     case "CHANGE_LANGUAGE": return changeLanguage(state);
 
