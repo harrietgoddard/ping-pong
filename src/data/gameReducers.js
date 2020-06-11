@@ -1,16 +1,20 @@
 //add points when players score
 
-export const player1Scores = state => {
+export const player1Scores = (state, action) => {
     return {
       ...state,
-      player1: state.player1 + 1
+      player1: state.player1 + 1,
+      serving: action.serving,
+      winner: action.winner,
     };
 };
     
-export const player2Scores = state => {
+export const player2Scores = (state, action) => {
     return {
         ...state,
-        player2: state.player2 + 1
+        player2: state.player2 + 1,
+        serving: action.serving,
+        winner: action.winner,
     };
 };
   
