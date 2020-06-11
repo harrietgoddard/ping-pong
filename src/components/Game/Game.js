@@ -5,6 +5,7 @@ import Winner from '../Winner/';
 import ResetButton from '../Button/ResetButton';
 import Results from '../Results/';
 import Form from '../Form/';
+import Loading from '../Loading/';
 
 const Game = ({ gameStarted }) => (
 
@@ -24,7 +25,9 @@ const Game = ({ gameStarted }) => (
         name={ "reset" }
         />
 
-        <Results />
+        <Loading>
+            <Results />
+        </Loading>
     </>
     
 );
