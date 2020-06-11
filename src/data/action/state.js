@@ -32,3 +32,10 @@ export const saveSettings = (data) => {
         alternateEvery: data.change_serve,
     }
 }
+
+export const showResults = (data) => {
+    return {
+        type: "GET_RESULTS",
+        results: data
+    }
+};

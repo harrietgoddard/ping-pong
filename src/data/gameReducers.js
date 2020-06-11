@@ -46,26 +46,26 @@ export const won = state => {
 
 //add result to results table
 
-export const addResult = state => {
+// export const addResult = state => {
 
-    return !state.winner ? state :
-        {
-        ...state,
-        results: [
-            ...state.results,
-            {
-            player_1: {
-                score: state.player1,
-                won: state.winner === 1
-            },
-            player_2: {
-                score: state.player2,
-                won: state.winner === 2
-            }
-            }
-        ],
-    };
-};
+//     return !state.winner ? state :
+//         {
+//         ...state,
+//         results: [
+//             ...state.results,
+//             {
+//             player_1: {
+//                 score: state.player1,
+//                 won: state.winner === 1
+//             },
+//             player_2: {
+//                 score: state.player2,
+//                 won: state.winner === 2
+//             }
+//             }
+//         ],
+//     };
+// };
 
 //reset
 
@@ -80,3 +80,24 @@ export const resetGame = state => {
         winner: 0,
     };
 };
+
+export const showResults = (state, action) => {
+    // return {
+    //     ...state,
+    //     loaded: true,
+    //     results: [
+    //         ...state.results,
+    //         {
+    //             player_1: {
+    //                 score: action.results.player_1.score,
+    //                 won: action.results.player_1.won
+    //             },
+    //             player_2: {
+    //                 score: action.results.player_2.score,
+    //                 won: action.results.player_2.won
+    //         }
+    //         }
+    //     ]
+    // }
+    console.log(action)
+}

@@ -1,6 +1,13 @@
 import { connect } from "react-redux";
 import Loading from './Loading';
+import { getResults } from "../../data/action/api";
 
 const mapStateToProps = ({ loaded }) => ({ loaded });
 
-export default connect(mapStateToProps)(Loading);
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleMount: () => dispatch(getResults())
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Loading);

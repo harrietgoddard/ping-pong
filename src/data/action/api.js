@@ -1,4 +1,4 @@
-import { saveSettings, score } from './state';
+import { saveSettings, score, showResults } from './state';
 import axios from '../axios';
 
 export const postGame = ({ p1Name, p2Name, winningScore, alternateEvery }) => {
@@ -23,6 +23,14 @@ export const patchScore = player => {
             player: player
         }).then(({ data }) => {
             dispatch(score(data.data))
+        });
+    };
+};
+
+export const getResults = () => {
+    return (dispatch) => {
+        axios.get("/").then(({ data }) => {
+            dispatch(showResults(data.data))
         });
     };
 };
