@@ -1,4 +1,5 @@
 const initial = {
+  gameStarted: false,
   player1: 0,
   player2: 0,
   serving: true,

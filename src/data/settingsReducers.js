@@ -12,6 +12,7 @@ export const changeLanguage = state => {
   export const saveSettings = (state, { p1Name, p2Name, winningScore, alternateEvery }) => {
     return {
       ...state,
+      gameStarted: true,
       p1Name,
       p2Name,
       winningScore,

@@ -76,6 +76,7 @@ export const addResult = state => {
 export const resetGame = state => {
     return {
         ...state, 
+        gameStarted: false,
         player1: 0,
         player2: 0,
         serving: true,
