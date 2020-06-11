@@ -30,6 +30,6 @@ const Results = ({ results, p1Name, p2Name, english }) => {
       </tbody>
     </table>
   )
-}
+};
 
 export default Results;
