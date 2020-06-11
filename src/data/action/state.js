@@ -10,21 +10,13 @@ export const changeLanguage = () => {
     };
 };
 
-export const incrementPlayer1 = (data) => {
+export const score = (data) => {
     let serving = data.player_1.serving ? true : false;
     let winner = data.player_1.won ? 1 : data.player_2.won ? 2 : 0;
     return {
-        type: "INCREMENT_PLAYER_1",
-        serving: serving,
-        winner: winner,
-    };
-};
-
-export const incrementPlayer2 = (data) => {
-    let serving = data.player_1.serving ? true : false;
-    let winner = data.player_1.won ? 1 : data.player_2.won ? 2 : 0;
-    return {
-        type: "INCREMENT_PLAYER_2",
+        type: "SCORE",
+        player1: data.player_1.score,
+        player2: data.player_2.score,
         serving: serving,
         winner: winner,
     };
