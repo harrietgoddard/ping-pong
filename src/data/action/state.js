@@ -22,12 +22,13 @@ export const incrementPlayer2 = () => {
     };
 };
 
-export const saveSettings = ({ p1Name, p2Name, winningScore, alternateEvery }) => {
+export const saveSettings = (data) => {
     return {
         type: "SAVE_SETTINGS",
-        p1Name,
-        p2Name,
-        winningScore: +winningScore,
-        alternateEvery: +alternateEvery,
-    };
-};
+        gameId: data.id,
+        p1Name: data.player_1.name,
+        p2Name: data.player_2.name,
+        winningScore: data.winning_score,
+        alternateEvery: data.change_serve,
+    }
+}
