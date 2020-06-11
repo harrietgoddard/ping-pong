@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Button from './Button';
-import { reset } from '../../data/action';
+import { reset } from '../../data/action/state';
 import history from '../../history';
 
 const mapStateToProps = ({ english }) => ({ english });

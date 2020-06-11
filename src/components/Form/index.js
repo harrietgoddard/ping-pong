@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Form from './Form';
-import { saveSettings } from '../../data/action';
+import { saveSettings } from '../../data/action/state';
 
 const mapStateToProps = ({ p1Name, p2Name, winningScore, alternateEvery }) => ({
     p1Name,

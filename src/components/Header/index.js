@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Header from './Header';
-import { changeLanguage } from '../../data/action';
+import { changeLanguage } from '../../data/action/state';
 
 const mapStateToProps = ({ english }) => ({ english });
 
