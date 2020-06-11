@@ -21,12 +21,8 @@ const App = ({ handlePlayer1, handlePlayer2, handleReset, handleLanguage }) => (
         <Route exact path="/game">
 
           <div className="row mb-4">
-              <ScoreCard1
-                id={ 1 }
-              />
-              <ScoreCard2
-                id={ 2 } 
-              />
+              <ScoreCard1 />
+              <ScoreCard2 />
           </div>
 
           <Winner />

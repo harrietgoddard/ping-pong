@@ -1,6 +1,6 @@
 import React from "react";
 
-const ScoreCard = ({ id, player, name, serving, winner, handlePlayer }) => {
+const ScoreCard = ({ player, name, serving, winner, handlePlayer }) => {
 
     return (
 
