@@ -1,12 +1,10 @@
 import { connect } from "react-redux";
 import Winner from './Winner';
 
-const mapStateToProps = ({ player1, player2, p1Name, p2Name, winner, english }) => {
+const mapStateToProps = ({ p1Name, p2Name, winner, english }) => {
+    let winnerName = winner === 1 ? p1Name : p2Name;
     return {
-        player1,
-        player2,
-        p1Name,
-        p2Name,
+        name: winnerName,
         winner,
         english
     }
