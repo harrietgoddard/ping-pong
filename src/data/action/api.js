@@ -1,4 +1,4 @@
-import { saveSettings, score, showResults } from './state';
+import { saveSettings, score, showResults, removeGame } from './state';
 import axios from '../axios';
 
 export const postGame = ({ p1Name, p2Name, winningScore, alternateEvery }) => {
@@ -31,6 +31,14 @@ export const getResults = () => {
     return (dispatch) => {
         axios.get("/").then(({ data }) => {
             dispatch(showResults(data.data))
+        });
+    };
+};
+
+export const deleteGame = (id) => {
+    return (dispatch) => {
+        axios.delete(`/${ id }`).then(() => {
+            dispatch(removeGame(id));
         });
     };
 };

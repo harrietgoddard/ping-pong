@@ -2,7 +2,7 @@ import React from "react";
 import englishDictionary from '../../data/english.json';
 import esperantoDictionary from '../../data/esperanto.json';
 
-const Results = ({ results, p1Name, p2Name, english }) => {
+const Results = ({ results, p1Name, p2Name, english, handleDelete }) => {
     
   let language = english ? englishDictionary : esperantoDictionary;
   let { game, winner } = language;
@@ -15,6 +15,7 @@ const Results = ({ results, p1Name, p2Name, english }) => {
           <th scope="col">Player 1</th>
           <th scope="col">Player 2</th>
           <th scope="col">{ winner }</th>
+          <th scope="col">Delete</th>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +25,13 @@ const Results = ({ results, p1Name, p2Name, english }) => {
               <td>{ result.player_1.score }</td>
               <td>{ result.player_2.score }</td>
               <td>{ result.player_1.won ? result.player_1.name : result.player_2.name }</td>
+              <td>
+                <button 
+                  className="btn btn-primary"
+                  onClick={ () => handleDelete(result.id) }
+                >
+                x</button>
+              </td>
             </tr>
           )
         )}

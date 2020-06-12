@@ -39,3 +39,10 @@ export const showResults = (data) => {
         results: data
     }
 };
+
+export const removeGame = (id) => {
+    return {
+        type: "REMOVE_GAME",
+        id,
+    }
+}

@@ -1,5 +1,5 @@
 import { changeLanguage, saveSettings } from './settingsReducers';
-import { score, resetGame, showResults } from './gameReducers';
+import { score, resetGame, showResults, removeGame } from './gameReducers';
 
 
 const reducer = (state, action) => {
@@ -14,6 +14,8 @@ const reducer = (state, action) => {
     case "SAVE_SETTINGS": return saveSettings(state, action);
 
     case "GET_RESULTS" : return showResults(state, action);
+
+    case "REMOVE_GAME" : return removeGame(state, action);
 
     default: return state;
 

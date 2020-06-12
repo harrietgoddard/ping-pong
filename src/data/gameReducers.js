@@ -88,3 +88,13 @@ export const showResults = (state, action) => {
         results: action.results,
     }
 }
+
+export const removeGame = (state, action) => {
+    
+    let newResults = state.results.filter(result => result.id !== action.id);
+
+    return {
+        ...state,
+        results: newResults,
+    }
+}
