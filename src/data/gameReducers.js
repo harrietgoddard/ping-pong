@@ -78,6 +78,7 @@ export const resetGame = state => {
         player2: 0,
         serving: true,
         winner: 0,
+        loaded: false,
     };
 };
 
