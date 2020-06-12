@@ -7,7 +7,7 @@ import Results from '../Results/';
 import Form from '../Form/';
 import Loading from '../Loading/';
 
-const Game = ({ gameStarted }) => (
+const Game = ({ gameStarted, winner }) => (
 
     !gameStarted ? 
     <Form /> : 
@@ -25,9 +25,11 @@ const Game = ({ gameStarted }) => (
         name={ "reset" }
         />
 
-        <Loading>
-            <Results />
-        </Loading>
+        { winner ? 
+            <Loading>
+                <Results />
+            </Loading>
+        : null }
     </>
     
 );

@@ -82,22 +82,9 @@ export const resetGame = state => {
 };
 
 export const showResults = (state, action) => {
-    // return {
-    //     ...state,
-    //     loaded: true,
-    //     results: [
-    //         ...state.results,
-    //         {
-    //             player_1: {
-    //                 score: action.results.player_1.score,
-    //                 won: action.results.player_1.won
-    //             },
-    //             player_2: {
-    //                 score: action.results.player_2.score,
-    //                 won: action.results.player_2.won
-    //         }
-    //         }
-    //     ]
-    // }
-    console.log(action)
+    return {
+        ...state,
+        loaded: true,
+        results: action.results,
+    }
 }

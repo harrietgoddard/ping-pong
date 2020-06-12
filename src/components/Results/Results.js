@@ -12,8 +12,8 @@ const Results = ({ results, p1Name, p2Name, english }) => {
       <thead>
         <tr>
           <th scope="col">{ game }</th>
-          <th scope="col">{ p1Name }</th>
-          <th scope="col">{ p2Name }</th>
+          <th scope="col">Player 1</th>
+          <th scope="col">Player 2</th>
           <th scope="col">{ winner }</th>
         </tr>
       </thead>
@@ -23,7 +23,7 @@ const Results = ({ results, p1Name, p2Name, english }) => {
               <th scope="row">{ index + 1}</th>
               <td>{ result.player_1.score }</td>
               <td>{ result.player_2.score }</td>
-              <td>{ result.player_1.won ? p1Name : p2Name }</td>
+              <td>{ result.player_1.won ? result.player_1.name : result.player_2.name }</td>
             </tr>
           )
         )}
